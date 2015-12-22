@@ -6,40 +6,48 @@ import java.io.File;
  * File inflator
  */
 class Inflator {
-    
-    
+
     /**
-     * Template file
+     * Template string
      */
-    private final File templateFile;
-    
+    private final String template;
+
     /**
-     * File containing data with which the template should be inflated
+     * String containing data with which the template should be inflated
      */
-    private final File dataFile;
-    
+    private final String data;
+
     /**
-     * List of placeholders that are supposed to be replaced with information from data file
+     * List of placeholders that are supposed to be replaced with information
+     * from data file
      */
     private final String[] placeholders;
-    
+
+    /**
+     * placeholder that markes the beginnig of the repetitive part
+     */
+    private final String startRepPlaceholder;
+
+    /**
+     * placeholder that markes the end of the repetitive part
+     */
+    private final String endRepPlaceholder;
+
     /**
      * Contains string obtained after inflating the template
      */
     private String inflated;
-    
-    
-    public Inflator(final File templateFile, final File dataFile, String[] placeholders){
-        this.templateFile = templateFile;
-        this.dataFile = dataFile;
-        this.placeholders = placeholders;
-    }
-    
-    
-    public String inflate(){
-    
-    }
-    
 
-    
+    public Inflator(final String template, final String dataFile, String[] placeholders, String start, String end) {
+        this.template = template;
+        this.data = dataFile;
+        this.placeholders = placeholders;
+        this.startRepPlaceholder = start;
+        this.endRepPlaceholder = end;
+    }
+
+    public String inflate() {
+        String templateString = read
+    }
+
 }
