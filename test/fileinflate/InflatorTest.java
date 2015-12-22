@@ -99,8 +99,8 @@ public class InflatorTest extends TestCase {
 
         HashMap<String, String> map = new HashMap();
         map.put("a1", "I");
-        map.put("a2", "like");
-        map.put("a3", "tea");
+        map.put("a3", "like");
+        map.put("a2", "tea");
 
         Inflator inflator = new Inflator(template, data, placeholders, start, end);
         assertEquals(inflator.replacePlaceholders("a1 a3 a2", map), "I like tea");
@@ -114,12 +114,12 @@ public class InflatorTest extends TestCase {
         String end = null;
 
         HashMap<String, String> map = new HashMap();
-        map.put("a1", "I");
-        map.put("a2", "like");
-        map.put("a3", "tea");
+        map.put("a1", "first");
+        map.put("a2", "second");
+        map.put("a3", "third");
 
         Inflator inflator = new Inflator(template, data, placeholders, start, end);
-        assertEquals(inflator.replacePlaceholders("a1 a1 a3 a2 a1", map), "I I like I tea");
+        assertEquals(inflator.replacePlaceholders("a1 a1 a3 a2 a1", map), "first first third second first");
     }
 
 }
